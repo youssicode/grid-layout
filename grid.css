@@ -1,0 +1,187 @@
+:root {
+  --bodyColor: #ccc;
+  --mainColor: #ddd;
+  --darkColor: #333;
+  --txtColor: #fff;
+  --shad: rgb(0 0 0 / 60%) 0 0 7px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background-color: var(--bodyColor);
+}
+.container {
+  width: 100%;
+  padding: 40px;
+}
+header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  margin-bottom: 30px;
+}
+.hedBtn {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  color: var(--darkColor);
+  background-color: var(--mainColor);
+  box-shadow: var(--shad);
+}
+.hedBtn:hover {
+  background-color: var(--darkColor);
+  color: var(--mainColor);
+  cursor: pointer;
+}
+main {
+  display: grid;
+  grid-template-columns: 1.15fr 1.15fr 0.7fr;
+  grid-template-rows: 1fr 1fr;
+  height: 600px;
+  grid-template-areas:
+    "photo photo prCard"
+    "photo photo prCard";
+  gap: 20px;
+}
+.parent {
+  background-color: var(--darkColor);
+  background-image: url("https://image.ibb.co/kYJK8x/showcase.jpg");
+  background-size: cover;
+  background-position: center;
+  grid-area: photo;
+  padding: 40px;
+  color: var(--txtColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.parent h1 {
+  font-size: max(30px, min(60px, 5vw));
+}
+.parent p {
+  font-size: 20px;
+  margin: 15px 0;
+}
+.parent .readBtn,
+.buyBtn,
+.learnBtn {
+  background-color: var(--darkColor);
+  color: var(--txtColor);
+  width: max-content;
+  padding: 10px 20px;
+}
+.parent .readBtn:hover,
+.buyBtn:hover,
+.learnBtn:hover {
+  background-color: var(--mainColor);
+  color: var(--darkColor);
+  cursor: pointer;
+  box-shadow: inset 0 0 0 2px var(--darkColor);
+}
+.priceCard {
+  box-shadow: var(--shad);
+  background-color: var(--mainColor);
+  display: grid;
+  place-items: center;
+  align-content: space-evenly;
+}
+.price {
+  font-size: 40px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  column-gap: 25px;
+  margin-bottom: 25px;
+}
+.services .servCard {
+  background-color: var(--mainColor);
+  text-align: center;
+  box-shadow: var(--shad);
+  margin-top: 25px;
+}
+.services .servCard * {
+  margin: 35px;
+}
+.business {
+  background-color: var(--mainColor);
+  box-shadow: var(--shad);
+  padding: 5%;
+  margin-bottom: 25px;
+  /* ---- With FlexBox---- */
+  /* display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; I dont want to write Media Queries :) */
+  /* // */
+  /* ---- With Grid---- */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+.business img {
+  /* ---- With FlexBox----  */
+  /* width: 48%;
+  min-width: 350px;
+  margin-right: 4%; */
+
+  /* ---- With Grid---- */
+  width: 95%;
+  height: 100%;
+  object-fit: cover;
+}
+.desc {
+  /* width: 48%; FlexBox */
+  width: 95%; /*With Grid*/
+}
+.desc p {
+  font-size: 20px;
+  line-height: 1.4;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  box-shadow: var(--shad);
+}
+footer {
+  height: 80px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  background-color: var(--darkColor);
+  color: var(--txtColor);
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 80px;
+}
+
+@media screen and (max-width: 769px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    grid-template-areas:
+      "photo photo"
+      "prCard prCard";
+  }
+  .priceCard {
+    align-content: center;
+  }
+}
