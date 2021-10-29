@@ -23,10 +23,7 @@ body {
 }
 header {
   display: grid;
-  grid-template-columns: repeat(
-    4,
-    1fr
-  ); /*We can use :repeat(auto-fit, minmax(200px, 1fr)) without the need for media queries */
+  grid-template-columns: repeat(4,1fr); /* We can use :repeat(auto-fit, minmax(200px, 1fr)) without the need for media queries */
   grid-gap: 15px;
   margin-bottom: 30px;
 }
@@ -109,9 +106,9 @@ main {
   margin-bottom: 25px;
 }
 /* Start Dealing with the latest (widiwed) items in a grid  */
-.gallery img:last-child:nth-child(3n - 1) {
+/* .gallery img:last-child:nth-child(3n - 1) {
   grid-column: span 2;
-}
+} */
 .gallery img:nth-child(3n-2) {
   border-radius: 30px;
 }
