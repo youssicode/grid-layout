@@ -18,12 +18,16 @@ body {
 }
 .container {
   width: 100%;
+  min-width: 400px;
   padding: 40px;
 }
 header {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  column-gap: 15px;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /*We can use :repeat(auto-fit, minmax(200px, 1fr)) without the need for media queries */
+  grid-gap: 15px;
   margin-bottom: 30px;
 }
 .hedBtn {
@@ -104,6 +108,15 @@ main {
   column-gap: 25px;
   margin-bottom: 25px;
 }
+/* Start Dealing with the latest (widiwed) items in a grid  */
+.gallery img:last-child:nth-child(3n - 1) {
+  grid-column: span 2;
+}
+.gallery img:nth-child(3n-2) {
+  border-radius: 30px;
+}
+/* End Dealing with the latest (widiwed) items in a grid  */
+
 .services .servCard {
   background-color: var(--mainColor);
   text-align: center;
@@ -174,6 +187,9 @@ footer {
 }
 
 @media screen and (max-width: 769px) {
+  header {
+    grid-template-columns: 1fr 1fr;
+  }
   main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2fr 1fr;
@@ -184,4 +200,13 @@ footer {
   .priceCard {
     align-content: center;
   }
+  .price {
+    font-size: 30px;
+  }
 }
+@media screen and (max-width: 450px) {
+  header {
+    grid-template-columns: 1fr;
+  }
+}
+
